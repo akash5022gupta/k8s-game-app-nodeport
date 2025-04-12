@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: game
+  template:
+    metadata:
+      labels:
+        app: game
+    spec:
+      containers:
+        - name: game-container
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
